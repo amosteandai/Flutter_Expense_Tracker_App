@@ -11,10 +11,12 @@ class NewExpense extends StatefulWidget {
 
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
+  final _amountController = TextEditingController();
 
   @override
   void dispose() {
     _titleController.dispose();
+    _amountController.dispose();
     super.dispose();
   }
 
@@ -29,11 +31,24 @@ class _NewExpenseState extends State<NewExpense> {
             maxLength: 50,
             decoration: InputDecoration(label: Text('Title')),
           ),
+          TextField(
+            controller: _amountController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              prefixText: '\$ ',
+              label: Text('Amount'),
+            ),
+          ),
           Row(
             children: [
+              TextButton(
+                onPressed: () {},
+                child: Text('Cancel'),
+              ),
               ElevatedButton(
                 onPressed: () {
                   print(_titleController.text);
+                  print(_amountController.text);
                 },
                 child: Text('Save Expense'),
               ),
