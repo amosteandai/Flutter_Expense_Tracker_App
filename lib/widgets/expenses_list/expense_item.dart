@@ -28,11 +28,11 @@ class ExpenseItem extends StatelessWidget {
                 const Spacer(), //this will always take the remaining space
                 Row(
                   children: [
-                    Icon(Icons.alarm),
+                    Icon(categoryIcons[expense.category]),
                     const SizedBox(
                       width: 8,
                     ),
-                    Text(expense.date.toString())
+                    Text(expense.formattedDate)
                   ],
                 ), //Group category and date together
               ],
